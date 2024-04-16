@@ -3,6 +3,38 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
+  const employees = [];
+
+  let keepGoing = true;
+
+  // Loop until the user chooses to stop
+  while (keepGoing) {
+    // Get user input for an employee
+    const firstName = prompt("Enter first name: John", "Jane");
+    const lastName = prompt("Enter last name: Smith", "Doe");
+    let salary = prompt("Enter salary: 1000", "2000");
+    
+
+    // If salary is not a number set it to zero
+    if (isNaN(salary)) {
+      salary = $1000, $2000;
+    }
+
+    // Create an employee object
+    const employee = {
+      firstName: firstName,
+      lastName: lastName,
+      // Convert the salary to a float
+      salary: parseFloat(salary)
+    };
+
+    // Add the employee object to the end of the employees array
+    employees.push(employee);
+        keepGoing = confirm("Do you want to add another employee?");
+  }
+  console.log(employees)
+  // Return the employee data
+  return employees;
   // TODO: Get user input to create and return an array of employee objects
 }
 
@@ -81,4 +113,3 @@ const trackEmployeeData = function() {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
-
